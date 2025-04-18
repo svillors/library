@@ -3,6 +3,8 @@ import os
 
 from livereload import Server
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from more_itertools import chunked
+
 
 env = Environment(
     loader=FileSystemLoader('.'),
@@ -16,7 +18,8 @@ def on_reload():
     with open('./books/meta_data.json') as raw_books:
         books = json.load(raw_books)
     template = env.get_template('template.html')
-    rendered_page = template.render(books=books)
+    chunked_books = chunked(books, 2)
+    rendered_page = template.render(chunked_books=chunked_books)
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
     print("file updated")
