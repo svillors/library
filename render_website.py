@@ -21,7 +21,11 @@ def on_reload():
     os.makedirs('pages', exist_ok=True)
     for number, books in enumerate(chunked_books, start=1):
         template = env.get_template('template.html')
-        rendered_page = template.render(chunked_books=chunked(books, 2))
+        rendered_page = template.render(
+            chunked_books=chunked(books, 2),
+            current_page=number,
+            pages_amount=len(chunked_books)
+        )
         with open(
             os.path.join('pages', f'index{number}.html'),
             'w',
@@ -39,8 +43,8 @@ template_path = os.path.join(
     'template.html'
 )
 server.watch(template_path, on_reload)
-root_dir = os.path.abspath(os.path.dirname(__file__))
+root_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'pages')
 server.serve(root=root_dir,
-             default_filename=os.path.join('pages', 'index1.html'),
+             default_filename='index1.html',
              port=8000,
              liveport=35729)
