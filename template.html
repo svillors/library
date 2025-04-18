@@ -12,7 +12,7 @@
     <script src="http://localhost:35729/livereload.js"></script>
   </head>
   <body>
-    <nav aria-label="Page navigation" style="display: flex; justify-content: center;">
+    <nav aria-label="Page navigation" style="display: flex; justify-content: center; margin-top: 20px;">
       <ul class="pagination">
         {% if current_page == 1 %}
           <li class="page-item disabled">
@@ -57,6 +57,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{book.title}}</h5>
                   <p class="card-text">{{book.author}}</p>
+                  <p class="card-text" style="font-size: 12px; font-weight: bold;">{{book.genres}}</p>
                   <p class="card-text"><small class="text-muted"><a href="books/{{book.book_path|urlencode}}" target="_blank">Читать</a></small></p>
                 </div>
               </div>
