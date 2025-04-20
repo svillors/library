@@ -45,6 +45,6 @@ template_path = os.path.join(
 server.watch(template_path, on_reload)
 root_dir = os.path.abspath(os.path.dirname(__file__))
 server.serve(root=root_dir,
-             default_filename='pages/index1.html',
+             default_filename='index.html',
              port=8000,
              liveport=35729)
