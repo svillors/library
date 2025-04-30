@@ -17,7 +17,7 @@ def on_reload():
     env = set_env()
     meta_data_path = os.getenv(
         'META_DATA_PATH',
-        default='./books/meta_data.json'
+        default='./books_data/meta_data.json'
     )
     with open(meta_data_path) as raw_books:
         books = json.load(raw_books)
