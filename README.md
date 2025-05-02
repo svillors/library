@@ -24,3 +24,7 @@ pip install -r requirements.txt
 python3 render_website.py
 ```
 - Open http://127.0.0.1:8000 in your browser
+### Opening the Website Without Running a Server
+If you don't want to run the script or start a local server, you can simply open the pre-generated HTML pages directly in your browser:
+- Navigate to the pages folder inside the project.
+- Double-click on any .html file, for example, `index.html` It will open in your browser like a regular website.
